@@ -1,0 +1,2 @@
+[console_scripts]
+decrypt-tool = jdev2026_python_wheel_gexil.decrypt_rsa:run_decrypt_rsa

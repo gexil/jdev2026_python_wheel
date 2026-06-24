@@ -1,4 +1,5 @@
 import numpy as np
+from importlib.resources import files
 
 from .helpers import (
     break_rsa_with_primes,
@@ -31,7 +32,11 @@ def run_decrypt_rsa():
     show_text_gui(str(c), title="Encrypted message", label="Encrypted message:")
 
     # Load the list of primes and break RSA to find d
-    primes = np.load("primes.npz").tolist()
+    # data_path = files("jdev2026_python_wheel_gexil") / "data" / "primes.npz"
+    # Python remplacera automatiquement __package__ par "jdev2026_python_wheel_gexil"
+    data_path = files(__package__) / "data" / "primes.npz"
+
+    primes = np.load(data_path).tolist()
     d = break_rsa_with_primes(n, e, primes)
 
     # Decrypting the message
