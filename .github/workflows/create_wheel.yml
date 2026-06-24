@@ -3,7 +3,7 @@ name: Publish package
 
 on:
   push:
-    branches: [ master, working_example ]
+    branches: [ master, workshop_starting_point, working_example]
     tags:
       - '*'
   pull_request:
@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: "3.14"
 
-      # - run: pip install build
-      # - run: python -m build
+      - run: pip install build
+      - run: python -m build
 
       - name: Upload wheels to GH artifacts
         uses: actions/upload-artifact@v7
